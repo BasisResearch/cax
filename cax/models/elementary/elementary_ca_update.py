@@ -11,11 +11,11 @@ from jax import Array
 class ElementaryCAUpdate(Update):
 	"""Elementary Cellular Automata update class."""
 
-	def __init__(self, *, wolfram_code: str = "01101110"):
+	def __init__(self, wolfram_code):
 		"""Initialize the ElementaryUpdate.
 
 		Args:
-			wolfram_code: A string of 8 bits representing the Wolfram code for the automaton.
+			wolfram_code: A length-8 array of booleans representing the Wolfram code for the automaton.
 
 		"""
 		self.patterns = nnx.Param(
@@ -32,7 +32,7 @@ class ElementaryCAUpdate(Update):
 				]
 			)
 		)
-		self.values = nnx.Param(jnp.array([int(bit) for bit in wolfram_code]))
+		self.values = nnx.Param(wolfram_code)
 
 	def __call__(self, state: State, perception: Perception, input: Input | None = None) -> State:
 		"""Apply the Elementary Cellular Automata update rule.

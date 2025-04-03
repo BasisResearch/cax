@@ -17,7 +17,7 @@ class ElementaryCA(CA):
 	"""Elementary Cellular Automata model."""
 
 	def __init__(
-		self, rngs: nnx.Rngs, *, wolfram_code: str = "01101110", metrics_fn: Callable = metrics_fn
+		self, rngs: nnx.Rngs, wolfram_code, *, metrics_fn: Callable = metrics_fn
 	):
 		"""Initialize Elementary CA."""
 		perceive = ElementaryCAPerceive(rngs=rngs)

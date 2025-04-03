@@ -41,7 +41,7 @@ def test_elementary_update():
 	seed = 42
 	spatial_dims = (16,)
 	channel_size = 1
-	wolfram_code = "01101110"  # Rule 110
+	wolfram_code = jnp.array(list(map(int, "01101110")))  # Rule 110
 	num_steps = 8
 
 	rngs = nnx.Rngs(seed)
